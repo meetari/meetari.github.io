@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Ari</title>
+  <meta name="description" content="How Ari collects, uses, and protects your data." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/sections.css" />
+
+  <style>
+    .legal {
+      padding-top: 8.5rem;
+      padding-bottom: var(--sp-24);
+    }
+    .legal__inner {
+      max-width: 720px;
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+    .legal__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: var(--sz-3xl);
+      line-height: 1.1;
+      color: var(--c-ink);
+      margin-bottom: var(--sp-3);
+    }
+    .legal__updated {
+      font-size: var(--sz-sm);
+      color: var(--c-muted);
+      margin-bottom: var(--sp-12);
+    }
+    .legal__body h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: var(--sz-xl);
+      color: var(--c-ink);
+      margin-top: var(--sp-10);
+      margin-bottom: var(--sp-3);
+    }
+    .legal__body h3 {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: var(--sz-md);
+      color: var(--c-ink);
+      margin-top: var(--sp-6);
+      margin-bottom: var(--sp-2);
+    }
+    .legal__body p {
+      color: var(--c-muted);
+      line-height: 1.7;
+      margin-bottom: var(--sp-4);
+    }
+    .legal__body ul {
+      margin: 0 0 var(--sp-4);
+      padding-left: 1.25rem;
+      list-style: disc;
+    }
+    .legal__body li {
+      color: var(--c-muted);
+      line-height: 1.7;
+      margin-bottom: var(--sp-2);
+    }
+    .legal__body a {
+      color: var(--c-violet);
+      text-decoration: underline;
+    }
+    .legal__body strong {
+      color: var(--c-ink);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────────── -->
+  <header class="nav" id="site-nav">
+    <div class="container">
+      <nav class="nav__inner" aria-label="Main navigation">
+        <a href="/" class="nav__logo" aria-label="Ari home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          Ari
+        </a>
+        <div class="nav__panel">
+          <ul class="nav__links">
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#how-it-works">How it works</a></li>
+            <li><a href="/#privacy">Privacy</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/feedback/">Feedback</a></li>
+          </ul>
+          <a href="/" class="btn btn--primary nav__cta">Add to Chrome</a>
+        </div>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="legal">
+    <div class="legal__inner">
+      <h1 class="legal__title">Privacy Policy</h1>
+      <p class="legal__updated">Last updated: August 3, 2026</p>
+
+      <div class="legal__body">
+        <p>
+          Ari is a Chrome extension that helps you understand where your browsing time goes. This
+          policy explains what data Ari collects, when, and why — and it's split into two parts,
+          because Ari works two different ways depending on whether you create an account.
+        </p>
+
+        <h2>1. Using Ari without an account</h2>
+        <p>
+          By default, Ari needs no account and no sign-up. Your browsing activity, time tracking,
+          streaks, and category breakdowns are computed and stored entirely in
+          <code>chrome.storage.local</code> — on your own device. None of it is transmitted to our
+          servers, and we have no visibility into it. Uninstalling the extension or clearing its
+          storage deletes it for good.
+        </p>
+
+        <h2>2. Using an Ari Account</h2>
+        <p>
+          Signing in (to chat with Ari or subscribe to Pro) is optional. It requires an email
+          address and involves the following:
+        </p>
+
+        <h3>Account &amp; sign-in</h3>
+        <ul>
+          <li>Your email address, used to send a one-time sign-in code. We don't use passwords.</li>
+          <li>An account identifier and, optionally, a display name you provide.</li>
+        </ul>
+
+        <h3>Chat with Ari</h3>
+        <ul>
+          <li>
+            Your messages, a short recent history, and a same-day activity summary the extension
+            builds on your device (categories and minutes, not your raw browsing history) are sent
+            with each chat request to generate a reply.
+          </li>
+          <li>
+            Chat messages themselves are not stored on our servers beyond what's needed to serve
+            the request; we do keep a count of tokens used, to enforce usage limits.
+          </li>
+        </ul>
+
+        <h3>Weekly summaries</h3>
+        <ul>
+          <li>
+            If you use the weekly summary feature, the aggregated stats behind it (total time,
+            streaks, top categories) are sent to our servers to generate a written summary, and the
+            summary itself is stored so it doesn't need to be regenerated. This feature is not
+            currently sending emails automatically to anyone; this section describes what happens
+            if and when it's turned back on.
+          </li>
+        </ul>
+
+        <h3>Subscriptions &amp; payments</h3>
+        <ul>
+          <li>
+            Ari Pro is billed through <a href="https://www.paddle.com" target="_blank" rel="noopener">Paddle</a>,
+            our payment processor. Paddle collects and processes your payment details directly —
+            we never receive or store your full card number.
+          </li>
+          <li>We keep a record of your subscription status and credit balance to enforce plan limits.</li>
+        </ul>
+
+        <h3>Feedback</h3>
+        <ul>
+          <li>
+            If you submit the feedback form, we store what you write (the category, title, and
+            details) and your email address if you choose to provide one, so we can read it and
+            reply if needed.
+          </li>
+        </ul>
+
+        <h2>3. Who we share data with</h2>
+        <p>We use a small number of service providers to run Ari. They only receive what's needed to do their job:</p>
+        <ul>
+          <li><strong>Cloudflare</strong> — hosts our servers and database.</li>
+          <li><strong>Paddle</strong> — processes payments and manages subscriptions.</li>
+          <li><strong>Replicate</strong> — powers the AI behind chat and your weekly write-up.</li>
+        </ul>
+        <p>We don't sell your data, and we don't share it with advertisers.</p>
+
+        <h2>4. Data retention</h2>
+        <p>
+          We keep account data for as long as your account is active. Feedback submissions may be
+          retained longer to help us track and act on recurring issues.
+        </p>
+
+        <h2>5. Your rights</h2>
+        <p>
+          You can request a copy of your account data, ask us to delete it, or close your account
+          entirely at any time by emailing us. If you'd rather not share any data with us at all,
+          simply don't create an account — Ari's core time-tracking features work fully offline.
+        </p>
+
+        <h2>6. Children's privacy</h2>
+        <p>Ari isn't directed at children under 13, and we don't knowingly collect data from them.</p>
+
+        <h2>7. Changes to this policy</h2>
+        <p>
+          If we make material changes to this policy, we'll update the date at the top of this page.
+        </p>
+
+        <h2>8. Contact</h2>
+        <p>
+          Questions about this policy, or requests about your data? Email us at
+          <a href="mailto:hello@ari.app">hello@ari.app</a>.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────────────── -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="/" class="footer__logo" aria-label="Ari home">
+            <span class="brand-mark" aria-hidden="true"></span>
+            Ari
+          </a>
+          <p class="footer__tagline">An AI companion for your browser.</p>
+        </div>
+        <nav class="footer__links" aria-label="Footer links">
+          <div class="footer__col">
+            <p class="footer__col-title">Product</p>
+            <a href="/#features">Features</a>
+            <a href="/#how-it-works">How it works</a>
+            <a href="/#privacy">Privacy</a>
+            <a href="/feedback/">Feedback</a>
+          </div>
+          <div class="footer__col">
+            <p class="footer__col-title">Legal</p>
+            <a href="/privacy-policy/">Privacy Policy</a>
+            <a href="/terms/">Terms</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Ari. Built with care for focused browsing.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+</body>
+</html>

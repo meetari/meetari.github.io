@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ari — Your AI Browser Companion</title>
+  <meta name="description" content="Meet Ari, the AI companion that lives in your Chrome sidebar. Track your time, set goals, and chat about your habits. Free, private, no account needed." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────────── -->
+  <header class="nav" id="site-nav">
+    <div class="container">
+      <nav class="nav__inner" aria-label="Main navigation">
+        <a href="/" class="nav__logo" aria-label="Ari home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          Ari
+        </a>
+        <div class="nav__panel">
+          <ul class="nav__links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="/feedback/">Feedback</a></li>
+          </ul>
+          <a href="#" class="btn btn--primary nav__cta">Add to Chrome</a>
+        </div>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Hero ────────────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero__inner">
+
+          <!-- Content -->
+          <div class="hero__content">
+            <span class="eyebrow reveal">Chrome Extension</span>
+            <h1 class="hero__title reveal reveal-d1" id="hero-title">
+              Meet <em>Ari</em>, your<br>browser's companion
+            </h1>
+            <p class="hero__sub reveal reveal-d2">
+              Ari lives in your Chrome sidebar, keeping track of where your time actually goes and nudging you when you start to drift.
+            </p>
+            <div class="hero__actions reveal reveal-d3">
+              <a href="#" class="btn btn--primary btn--lg">
+                Add to Chrome
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <p class="hero__trust">Privacy first &nbsp;·&nbsp; Works in seconds</p>
+            </div>
+          </div>
+
+          <!-- Extension mockup -->
+          <div class="hero__visual reveal reveal-d2" aria-hidden="true">
+            <div class="mockup-wrapper">
+              <div class="mockup-glow"></div>
+
+              <div class="mockup-frame">
+
+                <!-- Browser chrome bar -->
+                <div class="mockup-chrome-bar">
+                  <span class="chrome-dot" style="background:#FF5F56"></span>
+                  <span class="chrome-dot" style="background:#FFBD2E"></span>
+                  <span class="chrome-dot" style="background:#27C93F"></span>
+                </div>
+
+                <!-- Extension UI -->
+                <div class="mockup-ui">
+
+                  <!-- Today card -->
+                  <div class="mock-card">
+                    <div class="mock-card__head">
+                      <span class="mock-label">Today at a glance</span>
+                      <div class="mock-toggle-pill">
+                        <span class="mock-toggle-pill__active">Sites</span>
+                        <span>Categories</span>
+                      </div>
+                    </div>
+
+                    <div class="mock-total">3h 24m <span>online today</span></div>
+
+                    <div class="mock-stats">
+                      <div class="mock-stat">
+                        <div class="mock-stat__val">github.com</div>
+                        <div class="mock-stat__lbl">Top site</div>
+                      </div>
+                      <div class="mock-stat">
+                        <div class="mock-stat__val">8</div>
+                        <div class="mock-stat__lbl">Sites</div>
+                      </div>
+                      <div class="mock-stat">
+                        <div class="mock-stat__val">Learning</div>
+                        <div class="mock-stat__lbl">Top cat.</div>
+                      </div>
+                    </div>
+
+                    <div class="mock-site">
+                      <img src="https://www.google.com/s2/favicons?domain=github.com&sz=32"
+                           class="mock-favicon" alt="github.com" width="14" height="14" />
+                      <div class="mock-site__info">
+                        <div class="mock-site__top">
+                          <span>github.com</span><span>1h 12m</span>
+                        </div>
+                        <div class="mock-bar">
+                          <div class="mock-bar__fill" style="width:74%;background:#57755F"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mock-site">
+                      <img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=32"
+                           class="mock-favicon" alt="youtube.com" width="14" height="14" />
+                      <div class="mock-site__info">
+                        <div class="mock-site__top">
+                          <span>youtube.com</span><span>48m</span>
+                        </div>
+                        <div class="mock-bar">
+                          <div class="mock-bar__fill" style="width:47%;background:#B96D7E"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mock-site">
+                      <img src="https://www.google.com/s2/favicons?domain=notion.so&sz=32"
+                           class="mock-favicon" alt="notion.so" width="14" height="14" />
+                      <div class="mock-site__info">
+                        <div class="mock-site__top">
+                          <span>notion.so</span><span>32m</span>
+                        </div>
+                        <div class="mock-bar">
+                          <div class="mock-bar__fill" style="width:31%;background:#97672E"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Weekly activity card -->
+                  <div class="mock-card mock-week-card">
+                    <div class="mock-week-head">
+                      <span class="mock-week-title">Your Week's Flow</span>
+                      <span class="mock-week-nav">Aug 17–23</span>
+                    </div>
+
+                    <div class="mock-week-bars">
+                      <div class="mock-week-day">
+                        <div class="mock-week-bar-track"><div class="mock-week-bar-fill" style="height:35%"></div></div>
+                        <div class="mock-week-focus"></div>
+                        <span class="mock-week-label">S</span>
+                      </div>
+                      <div class="mock-week-day">
+                        <div class="mock-week-bar-track"><div class="mock-week-bar-fill" style="height:58%"></div></div>
+                        <div class="mock-week-focus mock-week-focus--mid"></div>
+                        <span class="mock-week-label">M</span>
+                      </div>
+                      <div class="mock-week-day">
+                        <div class="mock-week-bar-track"><div class="mock-week-bar-fill" style="height:46%"></div></div>
+                        <div class="mock-week-focus mock-week-focus--mid"></div>
+                        <span class="mock-week-label">T</span>
+                      </div>
+                      <div class="mock-week-day">
+                        <div class="mock-week-bar-track"><div class="mock-week-bar-fill" style="height:70%"></div></div>
+                        <div class="mock-week-focus mock-week-focus--high"></div>
+                        <span class="mock-week-label">W</span>
+                      </div>
+                      <div class="mock-week-day">
+                        <div class="mock-week-bar-track"><div class="mock-week-bar-fill mock-week-bar-fill--active" style="height:100%"></div></div>
+                        <div class="mock-week-focus mock-week-focus--high mock-week-focus--active"></div>
+                        <span class="mock-week-label mock-week-label--active">T</span>
+                      </div>
+                      <div class="mock-week-day">
+                        <div class="mock-week-bar-track"><div class="mock-week-bar-fill" style="height:4%"></div></div>
+                        <div class="mock-week-focus"></div>
+                        <span class="mock-week-label">F</span>
+                      </div>
+                      <div class="mock-week-day">
+                        <div class="mock-week-bar-track"><div class="mock-week-bar-fill" style="height:4%"></div></div>
+                        <div class="mock-week-focus"></div>
+                        <span class="mock-week-label">S</span>
+                      </div>
+                    </div>
+
+                    <div class="mock-week-foot">
+                      <div class="mock-week-legend">
+                        <span><i class="mock-week-legend__low"></i>Low</span>
+                        <span><i class="mock-week-legend__mid"></i>Mid</span>
+                        <span><i class="mock-week-legend__high"></i>High focus</span>
+                      </div>
+                      <div>
+                        <div class="mock-week-avg-val">2h 18m</div>
+                        <div class="mock-week-avg-lbl">Avg/day</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Bottom nav -->
+                  <div class="mock-bottom-nav">
+                    <div class="mock-nav-item mock-nav-item--active">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                      <span>Home</span>
+                    </div>
+                    <div class="mock-nav-item">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                      <span>Chat</span>
+                    </div>
+                    <div class="mock-nav-item">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                      <span>You</span>
+                    </div>
+                    <div class="mock-nav-item">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                      <span>Settings</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Features ─────────────────────────────────────────────── -->
+    <section class="features" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Features</span>
+          <h2 class="section-title" id="features-title">One companion, a few good habits</h2>
+          <p class="section-sub">Ari gives your browsing data a shape and a voice.</p>
+        </div>
+
+        <div class="features__grid">
+
+          <article class="feature-card reveal">
+            <div class="feature-card__icon feature-card__icon--indigo" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+            </div>
+            <p class="feature-card__tab">Home tab</p>
+            <h3 class="feature-card__title">Today at a Glance</h3>
+            <p class="feature-card__desc">See where your hours went across sites and categories, then set a daily intention to keep it that way.</p>
+          </article>
+
+          <article class="feature-card reveal reveal-d1">
+            <div class="feature-card__icon feature-card__icon--violet" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <p class="feature-card__tab">Chat tab</p>
+            <h3 class="feature-card__title">Talk to Ari</h3>
+            <p class="feature-card__desc">Ask "Am I on track today?" or "What's my biggest distraction?" Ari answers with your actual data, not generic advice.</p>
+          </article>
+
+          <article class="feature-card reveal reveal-d2">
+            <div class="feature-card__icon feature-card__icon--amber" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 3a9 9 0 0 1 0 18"/><path d="M12 3v18"/></svg>
+            </div>
+            <p class="feature-card__tab">You tab</p>
+            <h3 class="feature-card__title">Know Your Archetype</h3>
+            <p class="feature-card__desc">See a simple archetype based on your real patterns, like Deep Worker or Creative Spark, plus the streaks you've built along the way.</p>
+          </article>
+
+          <article class="feature-card reveal reveal-d3">
+            <div class="feature-card__icon feature-card__icon--rose" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </div>
+            <p class="feature-card__tab">Settings tab</p>
+            <h3 class="feature-card__title">Make It Yours</h3>
+            <p class="feature-card__desc">Set site limits, tune how often Ari nudges you, switch to dark mode, and manage your account, all from one place.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── How it works ──────────────────────────────────────────── -->
+    <section class="how-it-works" id="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">How it works</span>
+          <h2 class="section-title" id="how-title">Up and running in 60 seconds</h2>
+          <p class="section-sub">No setup. Install and Ari is ready to go immediately.</p>
+        </div>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <h3 class="step__title">Install in one click</h3>
+            <p class="step__desc">Add Ari to Chrome from the Web Store and it opens right in your sidebar.</p>
+          </li>
+          <li class="step reveal reveal-d1">
+            <h3 class="step__title">Browse naturally</h3>
+            <p class="step__desc">Ari quietly tracks your time in the background, without interrupting your regular browsing.</p>
+          </li>
+          <li class="step reveal reveal-d2">
+            <h3 class="step__title">Open the sidebar</h3>
+            <p class="step__desc">Anytime you want: check your stats, set a goal, or chat with Ari. Your data is always there, always yours.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ── Chat preview ──────────────────────────────────────────── -->
+    <section class="chat-preview" aria-labelledby="chat-title">
+      <div class="container">
+        <div class="chat-preview__inner reveal">
+
+          <div class="chat-preview__text">
+            <span class="eyebrow">Ari in action</span>
+            <h2 class="section-title" id="chat-title">A friend who actually knows your habits</h2>
+            <p class="section-sub">Ari doesn't give generic productivity tips. Every response is grounded in your real browsing data.</p>
+          </div>
+
+          <div class="chat-preview__convo" role="log" aria-label="Example conversation with Ari">
+            <div class="chat-preview__convo-header">
+              <div class="chat-convo-avatar" aria-hidden="true">Ari</div>
+              <span class="chat-convo-name">Ari</span>
+            </div>
+
+            <div class="chat-msg chat-msg--user reveal reveal-d1">
+              How did I do today?
+            </div>
+            <div class="chat-msg chat-msg--ari reveal reveal-d2">
+              Pretty solid. You spent 2h 14m on GitHub, right in line with your usual Monday pattern. There was a 40-minute YouTube stretch around 3pm, a bit longer than usual for you.
+            </div>
+            <div class="chat-msg chat-msg--user reveal reveal-d3">
+              What's been my biggest distraction this week?
+            </div>
+            <div class="chat-msg chat-msg--ari reveal reveal-d4">
+              YouTube, by a good margin. About 3h 40m over the last five days, mostly in the afternoons. Your mornings have stayed pretty focused.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Categories ────────────────────────────────────────────── -->
+    <section class="categories" aria-labelledby="cat-title">
+      <div class="container">
+        <div class="categories__inner">
+
+          <div class="categories__text reveal">
+            <span class="eyebrow">Smart categorization</span>
+            <h2 class="section-title" id="cat-title">Ari understands context, not just clicks</h2>
+            <p class="section-sub">Every site is automatically sorted into a meaningful category. Your data tells a story, not just a list of URLs.</p>
+          </div>
+
+          <div class="categories__bars" aria-label="Example category breakdown">
+            <div class="cat-row reveal">
+              <span class="cat-row__label" style="color:#435C4D">Work Tools</span>
+              <div class="cat-row__track"><div class="cat-row__fill" style="width:78%;background:#435C4D"></div></div>
+              <span class="cat-row__time">2h 34m</span>
+            </div>
+            <div class="cat-row reveal reveal-d1">
+              <span class="cat-row__label" style="color:#57755F">Learning</span>
+              <div class="cat-row__track"><div class="cat-row__fill" style="width:52%;background:#57755F"></div></div>
+              <span class="cat-row__time">1h 12m</span>
+            </div>
+            <div class="cat-row reveal reveal-d1">
+              <span class="cat-row__label" style="color:#8AAA97">Productivity</span>
+              <div class="cat-row__track"><div class="cat-row__fill" style="width:38%;background:#8AAA97"></div></div>
+              <span class="cat-row__time">48m</span>
+            </div>
+            <div class="cat-row reveal reveal-d2">
+              <span class="cat-row__label" style="color:#B96D7E">Entertainment</span>
+              <div class="cat-row__track"><div class="cat-row__fill" style="width:24%;background:#B96D7E"></div></div>
+              <span class="cat-row__time">32m</span>
+            </div>
+            <div class="cat-row reveal reveal-d2">
+              <span class="cat-row__label" style="color:#97672E">Social &amp; News</span>
+              <div class="cat-row__track"><div class="cat-row__fill" style="width:15%;background:#97672E"></div></div>
+              <span class="cat-row__time">18m</span>
+            </div>
+            <div class="cat-row reveal reveal-d3">
+              <span class="cat-row__label" style="color:#CE8998">Creative</span>
+              <div class="cat-row__track"><div class="cat-row__fill" style="width:10%;background:#CE8998"></div></div>
+              <span class="cat-row__time">12m</span>
+            </div>
+            <div class="cat-row reveal reveal-d3">
+              <span class="cat-row__label" style="color:#6C6153">Other</span>
+              <div class="cat-row__track"><div class="cat-row__fill" style="width:7%;background:#B7A98F"></div></div>
+              <span class="cat-row__time">8m</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Privacy ───────────────────────────────────────────────── -->
+    <section class="privacy" id="privacy" aria-labelledby="privacy-title">
+      <div class="container">
+        <div class="privacy__card reveal">
+          <div class="privacy__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="privacy__body">
+            <h2 class="privacy__title" id="privacy-title">Your data stays local</h2>
+            <p class="privacy__desc">Ari's core features, time tracking, streaks, and category breakdowns work fully offline and live in your browser's local storage. The one exception is chat: sending a message shares a short activity summary to generate a reply, and that data isn't stored on our servers afterward.</p>
+            <ul class="privacy__points">
+              <li>Stored in <code>chrome.storage.local</code>, on your machine</li>
+              <li>Chat sends what's needed for a reply, then it's gone, not stored on our servers</li>
+              <li>Delete everything from inside the extension, anytime</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Pricing ───────────────────────────────────────────────── -->
+    <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Pricing</span>
+          <h2 class="section-title" id="pricing-title">Free to start, upgrade when you want more</h2>
+          <p class="section-sub">Time tracking, intentions, and streaks are free, forever. Chat with Ari is a Pro add-on.</p>
+        </div>
+
+        <div class="pricing__toggle" id="pricing-toggle">
+          <button type="button" class="pricing__toggle-btn is-active" data-plan="monthly" aria-pressed="true">Monthly</button>
+          <button type="button" class="pricing__toggle-btn" data-plan="yearly" aria-pressed="false">Yearly<span class="pricing__toggle-save">Save 18%</span></button>
+        </div>
+
+        <div class="pricing__grid">
+
+          <div class="pricing__card reveal">
+            <p class="pricing__plan-name">Free</p>
+            <p class="pricing__price">$0<span class="pricing__price-period">/forever</span></p>
+            <p class="pricing__plan-desc">Everything you need to understand your time.</p>
+            <ul class="pricing__features">
+              <li>Time tracking across sites and categories</li>
+              <li>Daily intentions and site limits</li>
+              <li>Weekly activity chart</li>
+              <li>Streaks and your browsing archetype</li>
+              <li>No account required</li>
+            </ul>
+            <a href="#" class="btn btn--secondary pricing__cta">Add to Chrome</a>
+          </div>
+
+          <div class="pricing__card pricing__card--pro reveal reveal-d1">
+            <p class="pricing__plan-name">Pro</p>
+            <p class="pricing__price">
+              <span class="pricing__price-amount" id="pricing-amount">$4.99</span><span class="pricing__price-period" id="pricing-period">/mo</span>
+            </p>
+            <p class="pricing__plan-desc">Everything in Free, plus AI chat and deeper insight.</p>
+            <ul class="pricing__features">
+              <li>Chat with Ari, grounded in your real data</li>
+              <li>A personalized weekly write-up, not just the generic archetype</li>
+              <li>Full history, not just the last 7 days</li>
+              <li>Hourly usage breakdown per site</li>
+              <li>Monthly AI credits included, top up anytime</li>
+            </ul>
+            <a href="#" class="btn btn--primary pricing__cta">Upgrade to Pro</a>
+          </div>
+
+        </div>
+
+        <p class="pricing__note">Cancel anytime. Pro is billed securely through Paddle.</p>
+      </div>
+    </section>
+
+    <!-- ── CTA ──────────────────────────────────────────────────── -->
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta__inner reveal">
+          <h2 class="cta__title" id="cta-title">Start seeing your time clearly</h2>
+          <p class="cta__sub">Install Ari and it's ready the moment you open your sidebar.</p>
+          <a href="#" class="btn btn--primary btn--lg">
+            Add to Chrome
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────────────── -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="/" class="footer__logo" aria-label="Ari home">
+            <span class="brand-mark" aria-hidden="true"></span>
+            Ari
+          </a>
+          <p class="footer__tagline">An AI companion for your browser.</p>
+        </div>
+        <nav class="footer__links" aria-label="Footer links">
+          <div class="footer__col">
+            <p class="footer__col-title">Product</p>
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="#privacy">Privacy</a>
+            <a href="/feedback/">Feedback</a>
+          </div>
+          <div class="footer__col">
+            <p class="footer__col-title">Legal</p>
+            <a href="/privacy-policy/">Privacy Policy</a>
+            <a href="/terms/">Terms</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Ari. Built with care for focused browsing.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

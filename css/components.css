@@ -1,0 +1,194 @@
+/* ── Navigation ──────────────────────────────────────────────── */
+
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  background: rgba(243,238,230,.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t-base), box-shadow var(--t-base);
+}
+
+.nav.is-scrolled {
+  border-color: var(--c-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+  padding-block: var(--sp-4);
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-display);
+  font-size: var(--sz-lg);
+  font-weight: 700;
+  color: var(--c-ink);
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, #DDE8DF 0%, var(--c-violet) 68%, var(--c-violet-hover) 100%);
+  flex-shrink: 0;
+}
+
+/* Wraps .nav__links + .nav__cta. `display: contents` makes it invisible to
+   layout on desktop — both children stay direct flex items of .nav__inner.
+   The mobile media query below turns it into the actual dropdown panel. */
+.nav__panel {
+  display: contents;
+}
+
+.nav__links {
+  display: flex;
+  gap: 0;
+  list-style: none;
+}
+
+.nav__links a {
+  display: block;
+  font-size: var(--sz-sm);
+  font-weight: 500;
+  color: var(--c-muted);
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-md);
+  transition: color var(--t-fast), background var(--t-fast);
+}
+
+.nav__links a:hover {
+  color: var(--c-ink);
+  background: var(--c-violet-pale);
+}
+
+.nav__cta {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--sp-2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.nav__toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--c-ink);
+  border-radius: 1px;
+  transition: transform var(--t-base), opacity var(--t-base);
+}
+
+/* mobile nav */
+@media (max-width: 768px) {
+  /* On desktop, .nav__panel is `display: contents` (see base rule below) so
+     it has zero effect on layout — .nav__links and .nav__cta stay direct
+     flex children of .nav__inner. Below 768px it becomes the actual
+     dropdown: a single flex column sized to whatever content it holds, so
+     nothing needs a hardcoded height that breaks when a link is added. */
+  .nav__panel { display: none; }
+  .nav__toggle { display: flex; }
+
+  .nav.is-open .nav__panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--c-surface);
+    border-bottom: 1px solid var(--c-border);
+    box-shadow: var(--shadow-md);
+    padding: var(--sp-3) var(--gutter) var(--sp-4);
+  }
+
+  .nav.is-open .nav__links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav.is-open .nav__links a {
+    padding: var(--sp-3);
+    border-radius: var(--r-md);
+  }
+
+  .nav.is-open .nav__cta {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: .625rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: var(--sz-sm);
+  font-weight: 600;
+  line-height: 1;
+  border-radius: var(--r-full);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background var(--t-fast), transform var(--t-fast), box-shadow var(--t-base);
+}
+
+.btn--primary {
+  background: var(--c-violet);
+  color: #fff;
+  box-shadow: var(--shadow-violet);
+}
+
+.btn--primary:hover {
+  background: var(--c-violet-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-violet-lg);
+}
+
+.btn--primary:active {
+  transform: none;
+  box-shadow: var(--shadow-violet);
+}
+
+.btn--lg {
+  padding: .875rem 1.875rem;
+  font-size: var(--sz-base);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--c-ink);
+  border: 1px solid var(--c-border);
+}
+
+.btn--secondary:hover {
+  background: var(--c-ground);
+  transform: translateY(-1px);
+}
+
+.btn--secondary:active {
+  transform: none;
+}

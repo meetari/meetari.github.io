@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback — Ari</title>
+  <meta name="description" content="Report a bug, request a feature, or tell us anything else about Ari." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/sections.css" />
+
+  <style>
+    .fb {
+      min-height: 100vh;
+      padding-top: 6.5rem;
+      padding-bottom: var(--sp-24);
+      background:
+        radial-gradient(1200px 600px at 50% -10%, var(--c-violet-pale), transparent 70%),
+        var(--c-ground);
+    }
+    .fb__inner {
+      max-width: 560px;
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+    .fb__head {
+      text-align: center;
+      margin-bottom: var(--sp-8);
+    }
+    .fb__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: var(--sz-3xl);
+      line-height: 1.1;
+      color: var(--c-ink);
+      margin-bottom: var(--sp-3);
+    }
+    .fb__title em { font-style: italic; color: var(--c-violet); }
+    .fb__sub {
+      font-size: var(--sz-md);
+      color: var(--c-muted);
+      line-height: 1.55;
+    }
+    .fb__card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-2xl);
+      box-shadow: var(--shadow-xl);
+      padding: clamp(1.5rem, 5vw, 2.5rem);
+    }
+
+    .fb__types {
+      display: flex;
+      gap: var(--sp-2);
+      margin-bottom: var(--sp-5);
+    }
+    .fb__type {
+      flex: 1;
+      text-align: center;
+      padding: var(--sp-3) var(--sp-2);
+      font-family: var(--font-body);
+      font-size: var(--sz-sm);
+      font-weight: 600;
+      color: var(--c-muted);
+      background: var(--c-ground);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      cursor: pointer;
+      transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast);
+    }
+    .fb__type input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .fb__type:has(input:checked) {
+      background: var(--c-violet-tint);
+      color: var(--c-violet);
+      border-color: var(--c-violet);
+    }
+    .fb__type:has(input:focus-visible) {
+      outline: 2px solid var(--c-violet);
+      outline-offset: 2px;
+    }
+
+    .fb__field { margin-bottom: var(--sp-5); }
+    .fb__label {
+      display: block;
+      font-size: var(--sz-sm);
+      font-weight: 600;
+      color: var(--c-ink);
+      margin-bottom: var(--sp-2);
+    }
+    .fb__label--optional {
+      font-weight: 500;
+      color: var(--c-muted);
+    }
+    .fb__input,
+    .fb__textarea {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: var(--sz-base);
+      color: var(--c-ink);
+      background: var(--c-ground);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      padding: var(--sp-3);
+      transition: border-color var(--t-fast), box-shadow var(--t-fast);
+    }
+    .fb__input:focus,
+    .fb__textarea:focus {
+      outline: none;
+      border-color: var(--c-violet);
+      box-shadow: 0 0 0 3px var(--c-violet-pale);
+    }
+    .fb__textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    /* Honeypot — visually hidden but present in the DOM/tab order-free, so
+       simple bots that fill every field still trip it; a sighted user never
+       sees it. */
+    .fb__hp {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    .fb__submit { width: 100%; justify-content: center; }
+    .fb__error {
+      font-size: var(--sz-sm);
+      color: #B3261E;
+      margin-top: var(--sp-3);
+      text-align: center;
+    }
+
+    .fb__done {
+      text-align: center;
+      display: none;
+    }
+    .fb__done.is-visible { display: block; }
+    .fb__card.is-done .fb__form { display: none; }
+    .fb__badge {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto var(--sp-5);
+      border-radius: var(--r-full);
+      display: grid;
+      place-items: center;
+      background: var(--c-violet-tint);
+      color: var(--c-violet);
+    }
+    .fb__badge svg { width: 30px; height: 30px; }
+    .fb__done-title {
+      font-family: var(--font-display);
+      font-size: var(--sz-xl);
+      font-weight: 600;
+      color: var(--c-ink);
+      margin-bottom: var(--sp-2);
+    }
+    .fb__done-sub {
+      font-size: var(--sz-base);
+      color: var(--c-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────────── -->
+  <header class="nav" id="site-nav">
+    <div class="container">
+      <nav class="nav__inner" aria-label="Main navigation">
+        <a href="/" class="nav__logo" aria-label="Ari home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          Ari
+        </a>
+        <div class="nav__panel">
+          <ul class="nav__links">
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#how-it-works">How it works</a></li>
+            <li><a href="/#privacy">Privacy</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/feedback/">Feedback</a></li>
+          </ul>
+          <a href="/" class="btn btn--primary nav__cta">Add to Chrome</a>
+        </div>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="fb">
+    <div class="fb__inner">
+      <div class="fb__head">
+        <span class="eyebrow">We're listening</span>
+        <h1 class="fb__title">Send us <em>feedback</em></h1>
+        <p class="fb__sub">Found a bug? Want a feature? Just have a thought? Tell us below.</p>
+      </div>
+
+      <div class="fb__card" id="fb-card">
+        <form class="fb__form" id="fb-form" novalidate>
+          <div class="fb__types" role="radiogroup" aria-label="Feedback type">
+            <label class="fb__type">
+              <input type="radio" name="type" value="feature" checked />
+              Feature
+            </label>
+            <label class="fb__type">
+              <input type="radio" name="type" value="bug" />
+              Bug
+            </label>
+            <label class="fb__type">
+              <input type="radio" name="type" value="other" />
+              Other
+            </label>
+          </div>
+
+          <div class="fb__field">
+            <label class="fb__label" for="fb-title">Title</label>
+            <input class="fb__input" type="text" id="fb-title" name="title" maxlength="150" required placeholder="Short summary" />
+          </div>
+
+          <div class="fb__field">
+            <label class="fb__label" for="fb-description">Details</label>
+            <textarea class="fb__textarea" id="fb-description" name="description" maxlength="4000" required placeholder="What happened, or what you'd like to see?"></textarea>
+          </div>
+
+          <div class="fb__field">
+            <label class="fb__label fb__label--optional" for="fb-email">Email (optional, if you'd like a reply)</label>
+            <input class="fb__input" type="email" id="fb-email" name="email" maxlength="255" placeholder="you@example.com" />
+          </div>
+
+          <div class="fb__hp" aria-hidden="true">
+            <label for="fb-company">Company</label>
+            <input type="text" id="fb-company" name="company" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <button class="btn btn--primary btn--lg fb__submit" type="submit" id="fb-submit">
+            Send feedback
+          </button>
+
+          <p class="fb__error" id="fb-error" hidden></p>
+        </form>
+
+        <div class="fb__done" id="fb-done">
+          <div class="fb__badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          </div>
+          <p class="fb__done-title">Thanks — got it</p>
+          <p class="fb__done-sub">We read every submission. If you left an email and it needs a reply, we'll be in touch.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────────────── -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="/" class="footer__logo" aria-label="Ari home">
+            <span class="brand-mark" aria-hidden="true"></span>
+            Ari
+          </a>
+          <p class="footer__tagline">An AI companion for your browser.</p>
+        </div>
+        <nav class="footer__links" aria-label="Footer links">
+          <div class="footer__col">
+            <p class="footer__col-title">Product</p>
+            <a href="/#features">Features</a>
+            <a href="/#how-it-works">How it works</a>
+            <a href="/#privacy">Privacy</a>
+            <a href="/feedback/">Feedback</a>
+          </div>
+          <div class="footer__col">
+            <p class="footer__col-title">Legal</p>
+            <a href="/privacy-policy/">Privacy Policy</a>
+            <a href="/terms/">Terms</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Ari. Built with care for focused browsing.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+  <script>
+    (function () {
+      // Override once /web has a production domain and the Workers API is
+      // deployed — must also be added as WEB_ORIGIN in workers/wrangler.jsonc
+      // or this request will be blocked by CORS.
+      var API_BASE_URL = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+        ? 'http://localhost:8787'
+        : 'https://REPLACE-WITH-YOUR-WORKERS-SUBDOMAIN.workers.dev';
+
+      var form = document.getElementById('fb-form');
+      var card = document.getElementById('fb-card');
+      var done = document.getElementById('fb-done');
+      var errorEl = document.getElementById('fb-error');
+      var submitBtn = document.getElementById('fb-submit');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        errorEl.hidden = true;
+
+        var type = form.querySelector('input[name="type"]:checked').value;
+        var title = form.title.value.trim();
+        var description = form.description.value.trim();
+        var email = form.email.value.trim();
+        var company = form.company.value;
+
+        if (!title || !description) {
+          errorEl.textContent = 'Please fill in a title and some details.';
+          errorEl.hidden = false;
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+
+        fetch(API_BASE_URL + '/v1/feedback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type: type, title: title, description: description, email: email, company: company }),
+        })
+          .then(function (res) {
+            if (!res.ok) throw new Error('Request failed');
+            card.classList.add('is-done');
+            done.classList.add('is-visible');
+          })
+          .catch(function () {
+            errorEl.textContent = "Something went wrong sending that — mind trying again?";
+            errorEl.hidden = false;
+          })
+          .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send feedback';
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

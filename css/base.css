@@ -1,0 +1,108 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h, 6.5rem); /* set from the real header height in nav.js; clears the fixed .nav header when jumping to an #anchor */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--sz-base);
+  line-height: 1.65;
+  color: var(--c-ink);
+  background: var(--c-ground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+a   { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+ol, ul { list-style: none; }
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--c-violet);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+/* ── Scroll reveal ───────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .52s ease, transform .52s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal-d1 { transition-delay: .08s; }
+.reveal-d2 { transition-delay: .16s; }
+.reveal-d3 { transition-delay: .24s; }
+.reveal-d4 { transition-delay: .32s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ── Shared type ─────────────────────────────────────────────── */
+.eyebrow {
+  display: block;
+  font-size: var(--sz-xs);
+  font-weight: 600;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--c-violet);
+  margin-bottom: var(--sp-3);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--sz-2xl), 4vw, var(--sz-3xl));
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+  color: var(--c-ink);
+  margin-bottom: var(--sp-4);
+}
+
+.section-sub {
+  font-size: var(--sz-md);
+  color: var(--c-muted);
+  line-height: 1.6;
+  text-wrap: balance;
+}
+
+/* ── Shared section header ───────────────────────────────────── */
+.section-header {
+  text-align: center;
+  max-width: 520px;
+  margin-inline: auto;
+  margin-bottom: var(--sp-12);
+}
+
+code {
+  font-size: .82em;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  background: var(--c-violet-tint);
+  color: var(--c-violet);
+  padding: .15em .42em;
+  border-radius: var(--r-sm);
+}

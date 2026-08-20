@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — Ari</title>
+  <meta name="description" content="Complete your Ari Pro subscription." />
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+
+  <style>
+    .co {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: var(--sp-8) var(--gutter);
+      background:
+        radial-gradient(1200px 600px at 50% -10%, var(--c-violet-pale), transparent 70%),
+        var(--c-ground);
+    }
+    .co__card {
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-2xl);
+      box-shadow: var(--shadow-xl);
+      padding: clamp(2rem, 6vw, 3.5rem);
+    }
+    .co__spinner {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto var(--sp-6);
+      border-radius: var(--r-full);
+      border: 3px solid var(--c-violet-tint);
+      border-top-color: var(--c-violet);
+      animation: co-spin 800ms linear infinite;
+    }
+    @keyframes co-spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      .co__spinner { animation-duration: 2400ms; }
+    }
+    .co__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: var(--sz-xs);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--c-violet);
+      background: var(--c-violet-pale);
+      border-radius: var(--r-full);
+      padding: var(--sp-2) var(--sp-4);
+      margin-bottom: var(--sp-5);
+    }
+    .co__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: var(--sz-2xl);
+      line-height: 1.15;
+      color: var(--c-ink);
+      margin-bottom: var(--sp-3);
+    }
+    .co__sub {
+      font-family: var(--font-body);
+      font-size: var(--sz-md);
+      line-height: 1.55;
+      color: var(--c-muted);
+    }
+    .co__actions {
+      margin-top: var(--sp-8);
+      display: none;
+    }
+    .co__actions .btn { width: 100%; justify-content: center; }
+  </style>
+</head>
+<body>
+  <main class="co">
+    <div class="co__card">
+      <div class="co__spinner" aria-hidden="true"></div>
+
+      <span class="co__eyebrow">Ari Pro</span>
+
+      <h1 class="co__title" id="co-title">Preparing your checkout</h1>
+      <p class="co__sub" id="co-sub">Hang tight — this only takes a second.</p>
+
+      <div class="co__actions" id="co-actions">
+        <a href="/" class="btn btn--primary btn--lg">
+          Back to Ari
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // No transaction to resume — someone landed here directly rather than
+    // via a checkout link from the extension. Paddle.js has nothing to do,
+    // so skip loading it and just point them home.
+    var hasTransaction = new URLSearchParams(location.search).has('_ptxn');
+    if (!hasTransaction) {
+      document.querySelector('.co__spinner').style.display = 'none';
+      document.getElementById('co-title').textContent = 'No checkout in progress';
+      document.getElementById('co-sub').textContent = "This page opens automatically when you start upgrading to Ari Pro from the extension.";
+      document.getElementById('co-actions').style.display = 'block';
+    }
+  </script>
+
+  <!-- Paddle.js — auto-detects the _ptxn transaction id in the URL (appended
+       by the worker's checkout.url, see workers/src/features/billing/paddle.ts)
+       and opens the checkout overlay with no further JS needed on our end. -->
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+  <script>
+    Paddle.Environment.set('production');
+    Paddle.Initialize({
+      // Public, frontend-safe token (not the PADDLE_API_KEY server secret) —
+      // Paddle dashboard → Developer Tools → Authentication → Client-side tokens.
+      token: 'live_f93ed91d58b8ea34a06fab0ea94',
+      checkout: {
+        settings: {
+          successUrl: location.origin + '/thank-you/',
+        },
+      },
+    });
+  </script>
+</body>
+</html>
