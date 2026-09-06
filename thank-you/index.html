@@ -16,6 +16,19 @@
   <link rel="stylesheet" href="../css/components.css" />
 
   <style>
+    .ty__brand {
+      position: absolute;
+      top: var(--sp-6);
+      left: var(--gutter);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--sz-md);
+      color: var(--c-ink);
+    }
     .ty {
       min-height: 100vh;
       display: grid;
@@ -101,6 +114,11 @@
   </style>
 </head>
 <body>
+  <a href="/" class="ty__brand" aria-label="Ari home">
+    <span class="brand-mark" aria-hidden="true"></span>
+    Ari
+  </a>
+
   <main class="ty">
     <div class="ty__card">
       <div class="ty__badge" aria-hidden="true">
