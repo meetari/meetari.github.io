@@ -16,19 +16,6 @@
   <link rel="stylesheet" href="../css/components.css" />
 
   <style>
-    .ty__brand {
-      position: absolute;
-      top: var(--sp-6);
-      left: var(--gutter);
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      gap: var(--sp-2);
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: var(--sz-md);
-      color: var(--c-ink);
-    }
     .ty {
       min-height: 100vh;
       display: grid;
@@ -38,19 +25,14 @@
         radial-gradient(1200px 600px at 50% -10%, var(--c-violet-pale), transparent 70%),
         var(--c-ground);
     }
-    .ty__card {
-      max-width: 520px;
+    .ty__content {
+      max-width: 440px;
       width: 100%;
       text-align: center;
-      background: var(--c-surface);
-      border: 1px solid var(--c-border);
-      border-radius: var(--r-2xl);
-      box-shadow: var(--shadow-xl);
-      padding: clamp(2rem, 6vw, 3.5rem);
     }
     .ty__badge {
-      width: 76px;
-      height: 76px;
+      width: 64px;
+      height: 64px;
       margin: 0 auto var(--sp-6);
       border-radius: var(--r-full);
       display: grid;
@@ -58,24 +40,22 @@
       background: var(--c-violet-tint);
       color: var(--c-violet);
       box-shadow: var(--shadow-violet);
-      animation: ty-pop 460ms cubic-bezier(.2, .9, .3, 1.3) both;
+      animation: ty-pop 420ms cubic-bezier(.2, .9, .3, 1.3) both;
     }
-    .ty__badge svg { width: 38px; height: 38px; }
+    .ty__badge svg { width: 28px; height: 28px; }
     @keyframes ty-pop {
-      from { transform: scale(.4); opacity: 0; }
+      from { transform: scale(.5); opacity: 0; }
       to   { transform: scale(1);  opacity: 1; }
     }
     .ty__eyebrow {
-      display: inline-block;
+      display: block;
       font-family: var(--font-body);
       font-size: var(--sz-xs);
+      font-weight: 600;
       letter-spacing: .08em;
       text-transform: uppercase;
       color: var(--c-violet);
-      background: var(--c-violet-pale);
-      border-radius: var(--r-full);
-      padding: var(--sp-2) var(--sp-4);
-      margin-bottom: var(--sp-5);
+      margin-bottom: var(--sp-3);
     }
     .ty__title {
       font-family: var(--font-display);
@@ -94,14 +74,17 @@
       margin-bottom: var(--sp-8);
     }
     .ty__actions {
+      max-width: 280px;
+      margin-inline: auto;
       display: flex;
       flex-direction: column;
       gap: var(--sp-3);
-      align-items: center;
     }
     .ty__actions .btn { width: 100%; justify-content: center; }
     .ty__meta {
-      margin-top: var(--sp-6);
+      margin-top: var(--sp-8);
+      padding-top: var(--sp-6);
+      border-top: 1px solid var(--c-border);
       font-family: var(--font-body);
       font-size: var(--sz-xs);
       color: var(--c-muted);
@@ -114,13 +97,8 @@
   </style>
 </head>
 <body>
-  <a href="/" class="ty__brand" aria-label="Ari home">
-    <span class="brand-mark" aria-hidden="true"></span>
-    Ari
-  </a>
-
   <main class="ty">
-    <div class="ty__card">
+    <div class="ty__content">
       <div class="ty__badge" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20 6 9 17l-5-5" />
