@@ -35,7 +35,7 @@ button:focus-visible,
 a:focus-visible {
   outline: 2px solid var(--c-violet);
   outline-offset: 3px;
-  border-radius: var(--r-sm);
+  border-radius: 0;
 }
 
 /* ── Scroll reveal ───────────────────────────────────────────── */
@@ -104,5 +104,5 @@ code {
   background: var(--c-violet-tint);
   color: var(--c-violet);
   padding: .15em .42em;
-  border-radius: var(--r-sm);
+  border-radius: 0;
 }
