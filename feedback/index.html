@@ -14,15 +14,14 @@
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/components.css" />
   <link rel="stylesheet" href="../css/sections.css" />
+  <link rel="icon" type="image/png" href="../icons/icon-32.png" />
 
   <style>
     .fb {
       min-height: 100vh;
       padding-top: 6.5rem;
       padding-bottom: var(--sp-24);
-      background:
-        radial-gradient(1200px 600px at 50% -10%, var(--c-violet-pale), transparent 70%),
-        var(--c-ground);
+      background: var(--c-surface);
     }
     .fb__inner {
       max-width: 560px;
@@ -50,29 +49,29 @@
     .fb__card {
       background: var(--c-surface);
       border: 1px solid var(--c-border);
-      border-radius: var(--r-2xl);
-      box-shadow: var(--shadow-xl);
-      padding: clamp(1.5rem, 5vw, 2.5rem);
+      border-radius: 0;
+      padding: clamp(1.5rem, 5vw, 2.25rem);
     }
 
     .fb__types {
       display: flex;
-      gap: var(--sp-2);
-      margin-bottom: var(--sp-5);
+      background: var(--c-ground);
+      border: 1px solid var(--c-border);
+      padding: 3px;
+      gap: 2px;
+      margin-bottom: var(--sp-6);
     }
     .fb__type {
       flex: 1;
       text-align: center;
-      padding: var(--sp-3) var(--sp-2);
+      padding: var(--sp-2) var(--sp-2);
       font-family: var(--font-body);
       font-size: var(--sz-sm);
       font-weight: 600;
       color: var(--c-muted);
-      background: var(--c-ground);
-      border: 1px solid var(--c-border);
-      border-radius: var(--r-lg);
+      border-radius: 0;
       cursor: pointer;
-      transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast);
+      transition: background var(--t-fast), color var(--t-fast);
     }
     .fb__type input {
       position: absolute;
@@ -80,9 +79,8 @@
       pointer-events: none;
     }
     .fb__type:has(input:checked) {
-      background: var(--c-violet-tint);
+      background: var(--c-surface);
       color: var(--c-violet);
-      border-color: var(--c-violet);
     }
     .fb__type:has(input:focus-visible) {
       outline: 2px solid var(--c-violet);
@@ -107,9 +105,9 @@
       font-family: var(--font-body);
       font-size: var(--sz-base);
       color: var(--c-ink);
-      background: var(--c-ground);
+      background: var(--c-surface);
       border: 1px solid var(--c-border);
-      border-radius: var(--r-md);
+      border-radius: 0;
       padding: var(--sp-3);
       transition: border-color var(--t-fast), box-shadow var(--t-fast);
     }
@@ -117,10 +115,10 @@
     .fb__textarea:focus {
       outline: none;
       border-color: var(--c-violet);
-      box-shadow: 0 0 0 3px var(--c-violet-pale);
+      box-shadow: 0 0 0 2px var(--c-violet-pale);
     }
     .fb__textarea {
-      min-height: 140px;
+      min-height: 130px;
       resize: vertical;
     }
 
@@ -136,7 +134,17 @@
       white-space: nowrap;
     }
 
-    .fb__submit { width: 100%; justify-content: center; }
+    .fb__submit {
+      width: 100%;
+      justify-content: center;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .fb__submit:hover {
+      box-shadow: none;
+      transform: none;
+    }
+    .fb__submit:active { box-shadow: none; }
     .fb__error {
       font-size: var(--sz-sm);
       color: #B3261E;
@@ -179,26 +187,11 @@
   <!-- ── Navigation ──────────────────────────────────────────── -->
   <header class="nav" id="site-nav">
     <div class="container">
-      <nav class="nav__inner" aria-label="Main navigation">
+      <nav class="nav__inner nav__inner--center" aria-label="Main navigation">
         <a href="/" class="nav__logo" aria-label="Ari home">
-          <span class="brand-mark" aria-hidden="true"></span>
+          <img src="../icons/icon-128.png" class="brand-mark" alt="" aria-hidden="true" />
           Ari
         </a>
-        <div class="nav__panel">
-          <ul class="nav__links">
-            <li><a href="/#features">Features</a></li>
-            <li><a href="/#how-it-works">How it works</a></li>
-            <li><a href="/#privacy">Privacy</a></li>
-            <li><a href="/#pricing">Pricing</a></li>
-            <li><a href="/feedback/">Feedback</a></li>
-          </ul>
-          <a href="/" class="btn btn--primary nav__cta">Add to Chrome</a>
-        </div>
-        <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </nav>
     </div>
   </header>
@@ -206,7 +199,6 @@
   <main class="fb">
     <div class="fb__inner">
       <div class="fb__head">
-        <span class="eyebrow">We're listening</span>
         <h1 class="fb__title">Send us <em>feedback</em></h1>
         <p class="fb__sub">Found a bug? Want a feature? Just have a thought? Tell us below.</p>
       </div>
@@ -230,17 +222,17 @@
 
           <div class="fb__field">
             <label class="fb__label" for="fb-title">Title</label>
-            <input class="fb__input" type="text" id="fb-title" name="title" maxlength="150" required placeholder="Short summary" />
+            <input class="fb__input" type="text" id="fb-title" name="title" maxlength="250" required placeholder="Short summary" />
           </div>
 
           <div class="fb__field">
             <label class="fb__label" for="fb-description">Details</label>
-            <textarea class="fb__textarea" id="fb-description" name="description" maxlength="4000" required placeholder="What happened, or what you'd like to see?"></textarea>
+            <textarea class="fb__textarea" id="fb-description" name="description" maxlength="500" required placeholder="What happened, or what you'd like to see?"></textarea>
           </div>
 
           <div class="fb__field">
             <label class="fb__label fb__label--optional" for="fb-email">Email (optional, if you'd like a reply)</label>
-            <input class="fb__input" type="email" id="fb-email" name="email" maxlength="255" placeholder="you@example.com" />
+            <input class="fb__input" type="email" id="fb-email" name="email" maxlength="100" placeholder="you@example.com" />
           </div>
 
           <div class="fb__hp" aria-hidden="true">
@@ -274,10 +266,10 @@
       <div class="footer__inner">
         <div class="footer__brand">
           <a href="/" class="footer__logo" aria-label="Ari home">
-            <span class="brand-mark" aria-hidden="true"></span>
+            <img src="../icons/icon-128.png" class="brand-mark" alt="" aria-hidden="true" />
             Ari
           </a>
-          <p class="footer__tagline">An AI companion for your browser.</p>
+          <p class="footer__tagline">A quiet companion for your browsing time.</p>
         </div>
         <nav class="footer__links" aria-label="Footer links">
           <div class="footer__col">
@@ -310,6 +302,15 @@
         ? 'http://localhost:8787'
         : 'https://REPLACE-WITH-YOUR-WORKERS-SUBDOMAIN.workers.dev';
 
+      function isValidEmail(value) {
+        if (/\s/.test(value)) return false;
+        var at = value.indexOf('@');
+        if (at <= 0 || at !== value.lastIndexOf('@')) return false;
+        var domain = value.slice(at + 1);
+        var dot = domain.lastIndexOf('.');
+        return dot > 0 && dot < domain.length - 1;
+      }
+
       var form = document.getElementById('fb-form');
       var card = document.getElementById('fb-card');
       var done = document.getElementById('fb-done');
@@ -330,6 +331,28 @@
           errorEl.textContent = 'Please fill in a title and some details.';
           errorEl.hidden = false;
           return;
+        }
+        if (title.length > 250) {
+          errorEl.textContent = 'Title must be 250 characters or fewer.';
+          errorEl.hidden = false;
+          return;
+        }
+        if (description.length > 500) {
+          errorEl.textContent = 'Details must be 500 characters or fewer.';
+          errorEl.hidden = false;
+          return;
+        }
+        if (email) {
+          if (email.length > 100) {
+            errorEl.textContent = 'Email must be 100 characters or fewer.';
+            errorEl.hidden = false;
+            return;
+          }
+          if (!isValidEmail(email)) {
+            errorEl.textContent = 'Please enter a valid email address.';
+            errorEl.hidden = false;
+            return;
+          }
         }
 
         submitBtn.disabled = true;

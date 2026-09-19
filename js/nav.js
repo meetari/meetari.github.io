@@ -2,7 +2,7 @@
   const nav    = document.getElementById('site-nav');
   const toggle = document.getElementById('nav-toggle');
 
-  if (!nav || !toggle) return;
+  if (!nav) return;
 
   // Sticky styling
   const onScroll = () => {
@@ -21,7 +21,10 @@
   window.addEventListener('resize', setNavHeight);
   if (document.fonts) document.fonts.ready.then(setNavHeight);
 
-  // Mobile toggle
+  // Mobile toggle — simplified headers (legal/feedback pages) have no
+  // links or toggle button, so there's nothing more to wire up.
+  if (!toggle) return;
+
   toggle.addEventListener('click', () => {
     const open = nav.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', String(open));

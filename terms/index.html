@@ -14,11 +14,13 @@
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/components.css" />
   <link rel="stylesheet" href="../css/sections.css" />
+  <link rel="icon" type="image/png" href="../icons/icon-32.png" />
 
   <style>
     .legal {
       padding-top: 8.5rem;
       padding-bottom: var(--sp-24);
+      background: var(--c-surface);
     }
     .legal__inner {
       max-width: 720px;
@@ -49,7 +51,7 @@
     .legal__body p {
       color: var(--c-muted);
       line-height: 1.7;
-      margin-bottom: var(--sp-4);
+      margin-bottom: 0.625rem;
     }
     .legal__body ul {
       margin: 0 0 var(--sp-4);
@@ -68,14 +70,6 @@
     .legal__body strong {
       color: var(--c-ink);
     }
-    .legal__placeholder {
-      background: #F5EFE5;
-      border: 1px dashed #97672E;
-      border-radius: var(--r-md);
-      padding: var(--sp-3) var(--sp-4);
-      font-size: var(--sz-sm);
-      color: #7A5424;
-    }
   </style>
 </head>
 <body>
@@ -83,26 +77,11 @@
   <!-- ── Navigation ──────────────────────────────────────────── -->
   <header class="nav" id="site-nav">
     <div class="container">
-      <nav class="nav__inner" aria-label="Main navigation">
+      <nav class="nav__inner nav__inner--center" aria-label="Main navigation">
         <a href="/" class="nav__logo" aria-label="Ari home">
-          <span class="brand-mark" aria-hidden="true"></span>
+          <img src="../icons/icon-128.png" class="brand-mark" alt="" aria-hidden="true" />
           Ari
         </a>
-        <div class="nav__panel">
-          <ul class="nav__links">
-            <li><a href="/#features">Features</a></li>
-            <li><a href="/#how-it-works">How it works</a></li>
-            <li><a href="/#privacy">Privacy</a></li>
-            <li><a href="/#pricing">Pricing</a></li>
-            <li><a href="/feedback/">Feedback</a></li>
-          </ul>
-          <a href="/" class="btn btn--primary nav__cta">Add to Chrome</a>
-        </div>
-        <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </nav>
     </div>
   </header>
@@ -110,98 +89,73 @@
   <main class="legal">
     <div class="legal__inner">
       <h1 class="legal__title">Terms of Service</h1>
-      <p class="legal__updated">Last updated: August 3, 2026</p>
+      <p class="legal__updated">Last updated: September 19, 2026</p>
 
       <div class="legal__body">
         <p>
-          These terms govern your use of Ari — the Chrome extension, the optional account, and the
-          Ari Pro subscription. By installing or using Ari, you agree to them.
+          These terms govern your use of Ari — the Chrome extension and the optional account. By
+          installing or using Ari, you agree to them.
         </p>
 
         <h2>1. The service</h2>
         <p>
           Ari is a browser extension that tracks your time and browsing habits locally and, if you
-          choose to sign in, offers additional features like AI chat and an AI-generated weekly
-          write-up. Some features are gated behind an Ari Pro subscription.
+          choose to sign in, keeps more of your history available inside the extension.
         </p>
 
         <h2>2. Accounts</h2>
         <p>
-          Creating an account is optional. If you do, you agree to provide a valid email address
-          and to keep access to that inbox secure, since sign-in codes are sent there instead of a
-          password. You're responsible for all activity under your account.
+          Creating an account is optional, and is done by signing in with your Google account.
+          You're responsible for all activity under your account.
         </p>
 
-        <h2>3. Ari Pro subscription</h2>
-        <ul>
-          <li>Ari Pro is billed at $4.99/month or $49/year through Paddle, our payment processor.</li>
-          <li>Subscriptions renew automatically at the same interval until cancelled.</li>
-          <li>You can cancel anytime; cancelling stops future billing, but charges already made for the current period are not refunded.</li>
-          <li>We may change subscription pricing with advance notice; continued use after a price change takes effect means you accept the new price.</li>
-          <li>Additional AI credits can be purchased separately as a one-time top-up through Paddle; top-up purchases are not refunded.</li>
-        </ul>
-
-        <h2>4. Acceptable use</h2>
+        <h2>3. Acceptable use</h2>
         <p>You agree not to:</p>
         <ul>
           <li>Use Ari for anything illegal, or to harass, abuse, or harm others.</li>
-          <li>Attempt to bypass usage limits, credits, or subscription gating.</li>
           <li>Reverse-engineer, scrape, or abuse our servers or API beyond normal use of the extension.</li>
           <li>Use the feedback form to submit spam or content unrelated to Ari.</li>
         </ul>
         <p>We may suspend or terminate accounts that violate these terms.</p>
 
-        <h2>5. Your content</h2>
+        <h2>4. Your content</h2>
         <p>
-          You retain ownership of the messages and data you send to Ari. By using the chat and
-          feedback features, you give us permission to process that content to provide the service
-          and to improve Ari — for example, using feedback submissions to prioritize fixes and
-          features.
+          You retain ownership of the messages and data you send to Ari. By using the feedback
+          feature, you give us permission to process that content to provide the service and to
+          improve Ari — for example, using feedback submissions to prioritize fixes and features.
         </p>
 
-        <h2>6. AI-generated content</h2>
-        <p>
-          Chat replies and weekly summaries are generated by AI models and may sometimes be
-          inaccurate, incomplete, or oddly phrased. Don't rely on them as professional, medical, or
-          financial advice.
-        </p>
-
-        <h2>7. No warranty</h2>
+        <h2>5. No warranty</h2>
         <p>
           Ari is provided "as is," without warranties of any kind, express or implied. We don't
           guarantee the service will be uninterrupted, error-free, or perfectly accurate.
         </p>
 
-        <h2>8. Limitation of liability</h2>
+        <h2>6. Limitation of liability</h2>
         <p>
           To the fullest extent permitted by law, Ari is not liable for any indirect, incidental,
           or consequential damages arising from your use of the service. Our total liability for
           any claim is limited to the amount you paid us in the 12 months before the claim arose.
         </p>
 
-        <h2>9. Termination</h2>
+        <h2>7. Termination</h2>
         <p>
           You can stop using Ari at any time by uninstalling it; to close an account, contact us
-          (see Section 12). We may suspend or terminate accounts that violate these terms, or
+          (see Section 9). We may suspend or terminate accounts that violate these terms, or
           discontinue the service with reasonable notice.
         </p>
 
-        <h2>10. Changes to these terms</h2>
+        <h2>8. Changes to these terms</h2>
         <p>
           We may update these terms from time to time. If we make material changes, we'll update
           the date at the top of this page. Continuing to use Ari after changes take effect means
           you accept the updated terms.
         </p>
 
-        <h2>11. Governing law</h2>
-        <p class="legal__placeholder">
-          ⚠ Placeholder — the governing law / jurisdiction for these terms hasn't been set yet.
-          Fill this in (or have a lawyer do it) before publishing.
-        </p>
-
-        <h2>12. Contact</h2>
+        <h2>9. Contact</h2>
         <p>
-          Questions about these terms? Email us at <a href="mailto:hello@ari.app">hello@ari.app</a>.
+          Questions about these terms? Email us at
+          <a href="mailto:rubekmhzn7@gmail.com">rubekmhzn7@gmail.com</a>.
         </p>
       </div>
     </div>
@@ -213,10 +167,10 @@
       <div class="footer__inner">
         <div class="footer__brand">
           <a href="/" class="footer__logo" aria-label="Ari home">
-            <span class="brand-mark" aria-hidden="true"></span>
+            <img src="../icons/icon-128.png" class="brand-mark" alt="" aria-hidden="true" />
             Ari
           </a>
-          <p class="footer__tagline">An AI companion for your browser.</p>
+          <p class="footer__tagline">A quiet companion for your browsing time.</p>
         </div>
         <nav class="footer__links" aria-label="Footer links">
           <div class="footer__col">

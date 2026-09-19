@@ -19,28 +19,3 @@ document.querySelectorAll('.mock-favicon').forEach((img) => {
     this.replaceWith(span);
   });
 });
-
-// Pricing plan toggle — swaps the Pro card's displayed price
-(function () {
-  const toggle = document.getElementById('pricing-toggle');
-  if (!toggle) return;
-
-  const amountEl = document.getElementById('pricing-amount');
-  const periodEl = document.getElementById('pricing-period');
-  const PRICES = { monthly: { amount: '$4.99', period: '/mo' }, yearly: { amount: '$49', period: '/yr' } };
-
-  toggle.addEventListener('click', (e) => {
-    const btn = e.target.closest('.pricing__toggle-btn');
-    if (!btn) return;
-
-    const plan = btn.dataset.plan;
-    toggle.querySelectorAll('.pricing__toggle-btn').forEach((b) => {
-      const isActive = b === btn;
-      b.classList.toggle('is-active', isActive);
-      b.setAttribute('aria-pressed', String(isActive));
-    });
-
-    amountEl.textContent = PRICES[plan].amount;
-    periodEl.textContent = PRICES[plan].period;
-  });
-})();

@@ -23,6 +23,11 @@
   padding-block: var(--sp-4);
 }
 
+/* Legal/feedback pages: just the wordmark, centered — no links, no CTA. */
+.nav__inner--center {
+  justify-content: center;
+}
+
 .nav__logo {
   display: flex;
   align-items: center;
@@ -36,10 +41,9 @@
 
 .brand-mark {
   display: inline-block;
-  width: 1.2em;
-  height: 1.2em;
-  border-radius: 50%;
-  background: radial-gradient(circle at 32% 28%, #DDE8DF 0%, var(--c-violet) 68%, var(--c-violet-hover) 100%);
+  width: 1.35em;
+  height: 1.35em;
+  object-fit: contain;
   flex-shrink: 0;
 }
 
