@@ -66,7 +66,7 @@
   font-weight: 500;
   color: var(--c-muted);
   padding: var(--sp-2) var(--sp-3);
-  border-radius: var(--r-md);
+  border-radius: 0;
   transition: color var(--t-fast), background var(--t-fast);
 }
 
@@ -96,7 +96,7 @@
   width: 22px;
   height: 2px;
   background: var(--c-ink);
-  border-radius: 1px;
+  border-radius: 0;
   transition: transform var(--t-base), opacity var(--t-base);
 }
 
@@ -131,7 +131,7 @@
 
   .nav.is-open .nav__links a {
     padding: var(--sp-3);
-    border-radius: var(--r-md);
+    border-radius: 0;
   }
 
   .nav.is-open .nav__cta {
@@ -152,29 +152,21 @@
   font-size: var(--sz-sm);
   font-weight: 600;
   line-height: 1;
-  border-radius: var(--r-full);
+  border-radius: 0;
   border: none;
   cursor: pointer;
   white-space: nowrap;
   text-decoration: none;
-  transition: background var(--t-fast), transform var(--t-fast), box-shadow var(--t-base);
+  transition: background var(--t-fast), border-color var(--t-fast);
 }
 
 .btn--primary {
   background: var(--c-violet);
   color: #fff;
-  box-shadow: var(--shadow-violet);
 }
 
 .btn--primary:hover {
   background: var(--c-violet-hover);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-violet-lg);
-}
-
-.btn--primary:active {
-  transform: none;
-  box-shadow: var(--shadow-violet);
 }
 
 .btn--lg {
@@ -190,9 +182,4 @@
 
 .btn--secondary:hover {
   background: var(--c-ground);
-  transform: translateY(-1px);
-}
-
-.btn--secondary:active {
-  transform: none;
 }

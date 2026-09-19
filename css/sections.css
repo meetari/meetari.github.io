@@ -443,21 +443,20 @@
 
 .feature-card {
   background: var(--c-surface);
-  border-radius: var(--r-xl);
+  border-radius: 0;
   border: 1px solid var(--c-border);
   padding: var(--sp-8);
-  transition: box-shadow var(--t-base), transform var(--t-base);
+  transition: border-color var(--t-base);
 }
 
 .feature-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  border-color: var(--c-violet);
 }
 
 .feature-card__icon {
   width: 44px;
   height: 44px;
-  border-radius: var(--r-lg);
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -530,7 +529,7 @@
 .step {
   padding: var(--sp-8);
   border: 1px solid var(--c-border);
-  border-radius: var(--r-xl);
+  border-radius: 0;
   background: var(--c-ground);
   position: relative;
   overflow: hidden;
@@ -651,14 +650,14 @@
   margin-inline: auto;
   background: var(--c-surface);
   border: 1px solid var(--c-border);
-  border-radius: var(--r-2xl);
+  border-radius: 0;
   padding: var(--sp-10) var(--sp-12);
 }
 
 .privacy__icon {
   width: 56px;
   height: 56px;
-  border-radius: var(--r-xl);
+  border-radius: 0;
   background: var(--c-violet-tint);
   color: var(--c-violet);
   display: flex;
