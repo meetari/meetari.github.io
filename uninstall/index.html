@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Before you go - Ari</title>
+  <meta name="description" content="Tell us why you uninstalled Ari." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://meetari.github.io/uninstall/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/sections.css" />
+  <link rel="icon" type="image/png" href="../icons/icon-32.png" />
+
+  <style>
+    .un {
+      min-height: 100vh;
+      padding-top: 6.5rem;
+      padding-bottom: var(--sp-24);
+      background: var(--c-surface);
+    }
+    .un__inner {
+      max-width: 560px;
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+    .un__head {
+      text-align: center;
+      margin-bottom: var(--sp-8);
+    }
+    .un__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: var(--sz-3xl);
+      line-height: 1.1;
+      color: var(--c-ink);
+      margin-bottom: var(--sp-3);
+    }
+    .un__title em { font-style: italic; color: var(--c-violet); }
+    .un__sub {
+      font-size: var(--sz-md);
+      color: var(--c-muted);
+      line-height: 1.55;
+    }
+    .un__card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 0;
+      padding: clamp(1.5rem, 5vw, 2.25rem);
+    }
+
+    .un__field { margin-bottom: var(--sp-5); }
+    .un__label {
+      display: block;
+      font-size: var(--sz-sm);
+      font-weight: 600;
+      color: var(--c-ink);
+      margin-bottom: var(--sp-2);
+    }
+    .un__label--optional {
+      font-weight: 500;
+      color: var(--c-muted);
+    }
+
+    .un__reasons {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--c-border);
+      margin-bottom: var(--sp-6);
+    }
+    .un__reason {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      padding: var(--sp-3) var(--sp-4);
+      font-family: var(--font-body);
+      font-size: var(--sz-base);
+      color: var(--c-ink);
+      cursor: pointer;
+      transition: background var(--t-fast);
+    }
+    .un__reason:not(:last-child) { border-bottom: 1px solid var(--c-border-light); }
+    .un__reason:hover { background: var(--c-ground); }
+    .un__reason input {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      flex: none;
+      border-radius: var(--r-full);
+      border: 1.5px solid var(--c-border);
+      background: var(--c-surface);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+    .un__reason input::before {
+      content: '';
+      width: 9px;
+      height: 9px;
+      border-radius: var(--r-full);
+      background: var(--c-violet);
+      transform: scale(0);
+      transition: transform var(--t-fast);
+    }
+    .un__reason input:checked::before { transform: scale(1); }
+    .un__reason input:checked { border-color: var(--c-violet); }
+    .un__reason:has(input:focus-visible) {
+      outline: 2px solid var(--c-violet);
+      outline-offset: -2px;
+    }
+
+    .un__input,
+    .un__textarea {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: var(--sz-base);
+      color: var(--c-ink);
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 0;
+      padding: var(--sp-3);
+      transition: border-color var(--t-fast), box-shadow var(--t-fast);
+    }
+    .un__input:focus,
+    .un__textarea:focus {
+      outline: none;
+      border-color: var(--c-violet);
+      box-shadow: 0 0 0 2px var(--c-violet-pale);
+    }
+    .un__textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    /* Honeypot — visually hidden but present in the DOM, so simple bots
+       that fill every field still trip it; a sighted user never sees it. */
+    .un__hp {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    .un__submit {
+      width: 100%;
+      justify-content: center;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .un__submit:hover {
+      box-shadow: none;
+      transform: none;
+    }
+    .un__submit:active { box-shadow: none; }
+    .un__skip {
+      display: block;
+      text-align: center;
+      margin-top: var(--sp-4);
+      font-size: var(--sz-sm);
+      color: var(--c-muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      width: 100%;
+      font-family: var(--font-body);
+    }
+    .un__skip:hover { color: var(--c-ink); }
+    .un__error {
+      font-size: var(--sz-sm);
+      color: #B3261E;
+      margin-top: var(--sp-3);
+      text-align: center;
+    }
+
+    .un__done {
+      text-align: center;
+      display: none;
+    }
+    .un__done.is-visible { display: block; }
+    .un__card.is-done .un__form { display: none; }
+    .un__badge {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto var(--sp-5);
+      border-radius: var(--r-full);
+      display: grid;
+      place-items: center;
+      background: var(--c-violet-tint);
+      color: var(--c-violet);
+    }
+    .un__badge svg { width: 30px; height: 30px; }
+    .un__done-title {
+      font-family: var(--font-display);
+      font-size: var(--sz-xl);
+      font-weight: 600;
+      color: var(--c-ink);
+      margin-bottom: var(--sp-2);
+    }
+    .un__done-sub {
+      font-size: var(--sz-base);
+      color: var(--c-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────────── -->
+  <header class="nav" id="site-nav">
+    <div class="container">
+      <nav class="nav__inner nav__inner--center" aria-label="Main navigation">
+        <a href="/" class="nav__logo" aria-label="Ari home">
+          <img src="../icons/icon-128.png" class="brand-mark" alt="" aria-hidden="true" />
+          Ari
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="un">
+    <div class="un__inner">
+      <div class="un__head">
+        <h1 class="un__title">Sorry to see you <em>go</em></h1>
+        <p class="un__sub">Mind telling us why you uninstalled Ari? It takes ten seconds and helps us make it better.</p>
+      </div>
+
+      <div class="un__card" id="un-card">
+        <form class="un__form" id="un-form" novalidate>
+          <div class="un__field">
+            <div class="un__reasons" role="radiogroup" aria-label="Reason for uninstalling">
+              <label class="un__reason">
+                <input type="radio" name="reason" value="notifications" required />
+                Too many notifications
+              </label>
+              <label class="un__reason">
+                <input type="radio" name="reason" value="not_useful" required />
+                Wasn't useful for me
+              </label>
+              <label class="un__reason">
+                <input type="radio" name="reason" value="privacy" required />
+                Privacy concerns
+              </label>
+              <label class="un__reason">
+                <input type="radio" name="reason" value="alternative" required />
+                Found a better alternative
+              </label>
+              <label class="un__reason">
+                <input type="radio" name="reason" value="bugs" required />
+                Ran into bugs or issues
+              </label>
+              <label class="un__reason">
+                <input type="radio" name="reason" value="other" required />
+                Other
+              </label>
+            </div>
+          </div>
+
+          <div class="un__field">
+            <label class="un__label un__label--optional" for="un-details">Anything else? (optional)</label>
+            <textarea class="un__textarea" id="un-details" name="details" maxlength="2000" placeholder="Tell us more..."></textarea>
+          </div>
+
+          <div class="un__field">
+            <label class="un__label un__label--optional" for="un-email">Email (optional, if you'd like a reply)</label>
+            <input class="un__input" type="email" id="un-email" name="email" maxlength="255" placeholder="you@example.com" />
+          </div>
+
+          <div class="un__hp" aria-hidden="true">
+            <label for="un-company">Company</label>
+            <input type="text" id="un-company" name="company" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <button class="btn btn--primary btn--lg un__submit" type="submit" id="un-submit">
+            Send feedback
+          </button>
+          <button class="un__skip" type="button" id="un-skip">No thanks, skip this</button>
+
+          <p class="un__error" id="un-error" hidden></p>
+        </form>
+
+        <div class="un__done" id="un-done">
+          <div class="un__badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          </div>
+          <p class="un__done-title">Thanks for letting us know</p>
+          <p class="un__done-sub">You're welcome back anytime — we'll keep improving Ari.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────────────── -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="/" class="footer__logo" aria-label="Ari home">
+            <img src="../icons/icon-128.png" class="brand-mark" alt="" aria-hidden="true" />
+            Ari
+          </a>
+          <p class="footer__tagline">A quiet companion for your browsing time.</p>
+        </div>
+        <nav class="footer__links" aria-label="Footer links">
+          <div class="footer__col">
+            <p class="footer__col-title">Product</p>
+            <a href="/#features">Features</a>
+            <a href="/#how-it-works">How it works</a>
+            <a href="/#privacy">Privacy</a>
+            <a href="/feedback/">Feedback</a>
+          </div>
+          <div class="footer__col">
+            <p class="footer__col-title">Legal</p>
+            <a href="/privacy-policy/">Privacy Policy</a>
+            <a href="/terms/">Terms</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Ari. Built with care for focused browsing.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+  <script>
+    (function () {
+      // Override once /web has a production domain and the Workers API is
+      // deployed — must also be added as WEB_ORIGIN in workers/wrangler.jsonc
+      // or this request will be blocked by CORS.
+      var API_BASE_URL = 'https://ari-api.rubekmhzn7.workers.dev';
+
+      function isValidEmail(value) {
+        if (/\s/.test(value)) return false;
+        var at = value.indexOf('@');
+        if (at <= 0 || at !== value.lastIndexOf('@')) return false;
+        var domain = value.slice(at + 1);
+        var dot = domain.lastIndexOf('.');
+        return dot > 0 && dot < domain.length - 1;
+      }
+
+      // Chrome does not attach anything to the setUninstallURL target on its
+      // own — the extension appends the install id as a query param itself
+      // (e.g. chrome.runtime.setUninstallURL(SURVEY_URL + '?installId=' + id)).
+      var installId = new URLSearchParams(window.location.search).get('installId') || '';
+
+      var form = document.getElementById('un-form');
+      var card = document.getElementById('un-card');
+      var done = document.getElementById('un-done');
+      var errorEl = document.getElementById('un-error');
+      var submitBtn = document.getElementById('un-submit');
+      var skipBtn = document.getElementById('un-skip');
+
+      function showDone() {
+        card.classList.add('is-done');
+        done.classList.add('is-visible');
+      }
+
+      skipBtn.addEventListener('click', function () {
+        showDone();
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        errorEl.hidden = true;
+
+        var reasonInput = form.querySelector('input[name="reason"]:checked');
+        var details = form.details.value.trim();
+        var email = form.email.value.trim();
+        var company = form.company.value;
+
+        if (!reasonInput) {
+          errorEl.textContent = 'Please pick a reason, or skip.';
+          errorEl.hidden = false;
+          return;
+        }
+        if (details.length > 1000) {
+          errorEl.textContent = 'Details must be 1000 characters or fewer.';
+          errorEl.hidden = false;
+          return;
+        }
+        if (email) {
+          if (email.length > 255) {
+            errorEl.textContent = 'Email must be 255 characters or fewer.';
+            errorEl.hidden = false;
+            return;
+          }
+          if (!isValidEmail(email)) {
+            errorEl.textContent = 'Please enter a valid email address.';
+            errorEl.hidden = false;
+            return;
+          }
+        }
+        if (company) {
+          // Honeypot tripped — silently pretend it worked.
+          showDone();
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+
+        fetch(API_BASE_URL + '/v1/uninstall', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            installId: installId,
+            reason: reasonInput.value,
+            details: details,
+            email: email,
+          }),
+        })
+          .then(function (res) {
+            if (!res.ok) throw new Error('Request failed');
+            showDone();
+          })
+          .catch(function () {
+            errorEl.textContent = "Something went wrong sending that — mind trying again?";
+            errorEl.hidden = false;
+          })
+          .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send feedback';
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
