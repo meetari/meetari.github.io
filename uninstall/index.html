@@ -411,7 +411,7 @@
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sending…';
 
-        fetch(API_BASE_URL + '/v1/uninstall', {
+        fetch(API_BASE_URL + '/v1/uninstall-feedback', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
